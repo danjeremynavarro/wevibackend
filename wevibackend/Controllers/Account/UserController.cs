@@ -50,7 +50,7 @@ namespace wevibackend.Controllers.Account
         {
             if (IsUsernameAndEmailExist(value.Username, value.Email))
             {
-                return StatusCode(403); // already exist 
+                return StatusCode(403, new Response(){Status = ResponseStatus.Fail,Message="Username or email already exist"}); // already exist 
             };
 
             var user = new User()
